@@ -1,0 +1,92 @@
+.burger-icon {
+  --size: 100vmin;
+  --duration: 0.3s;
+  /* logo vertical lines slope angle for translate animation*/
+  --angle: 0.25;
+  width: var(--size);
+  height: var(--size);
+}
+
+.burger-icon svg {
+  width: inherit;
+  height: inherit;
+  fill: currentColor;
+}
+
+/* #region Animation */
+
+.burger-icon path {
+  --transition: all var(--duration) ease-in-out;
+  transition: var(--transition);
+  -webkit-transition: var(--transition);
+  -moz-transition: var(--transition);
+  -ms-transition: var(--transition);
+  -o-transition: var(--transition);
+}
+
+/* #region Lines Animation */
+.burger-icon #line-vertical-short-y,
+.burger-icon #line-vertical-long-h,
+.burger-icon #line-horizontal-bottom-s {
+  --bias: 1;
+}
+.burger-icon #line-vertical-long-y,
+.burger-icon #line-vertical-short-h,
+.burger-icon #line-horizontal-top-s {
+  --bias: -1;
+}
+
+.burger-icon path[id^="line-horizontal"] {
+  --transform: translateX(calc(17.56px * var(--bias)));
+  transform: var(--transform);
+  -webkit-transform: var(--transform);
+  -moz-transform: var(--transform);
+  -ms-transform: var(--transform);
+  -o-transform: var(--transform);
+}
+
+.burger-icon path[id^="line-vertical"] {
+  --transform: translate(
+    calc(var(--bias) * var(--angle) * var(--size)),
+    calc(-1 * var(--bias) * var(--size))
+  );
+  opacity: 0;
+  transform: var(--transform);
+  -webkit-transform: var(--transform);
+  -moz-transform: var(--transform);
+  -ms-transform: var(--transform);
+  -o-transform: var(--transform);
+}
+
+.burger-icon:hover path[id^="line"] {
+  opacity: 1;
+  transform: translate(0);
+  -webkit-transform: translate(0);
+  -moz-transform: translate(0);
+  -ms-transform: translate(0);
+  -o-transform: translate(0);
+}
+/* #endregion Lines Animation */
+
+/* #region Circles Animation */
+.burger-icon path[id^="circle"] {
+  opacity: 0;
+  transform-origin: center;
+  transform: scale(0);
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+}
+
+.burger-icon:hover path[id^="circle"] {
+  opacity: 1;
+  transform: scale(1);
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+}
+/* #endregion Circles Animation */
+
+/* #endregion Animation */
