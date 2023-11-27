@@ -2,3 +2,5 @@
 :collision: Logo animation using HTML + CSS + SVG only .
 
 [:rocket:Live Preview:rocket:](https://yahya-sh.github.io/ysh-burger-menu/)
+
+![Burger Menu](burger-menu.gif "Burger Menu")
